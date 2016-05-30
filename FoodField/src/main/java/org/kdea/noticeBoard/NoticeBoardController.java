@@ -1,5 +1,5 @@
 package org.kdea.noticeBoard;
 
-public class NoticeBoard {
+public class NoticeBoardController {
 
 }
