@@ -22,7 +22,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.kdea.doeat" />
-	
-	
+	<context:component-scan base-package="org.kdea.noticeBoard" />
 	
 </beans:beans>
