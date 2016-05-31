@@ -21,69 +21,71 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
+	$(function() {
 
-    $(function(){
-        
-    	$("#listbtn").on("click",goList);
-    	$("#replbtn").on("click",showForm);
-    	$("#delete").on("click",delAjax);
-    	
-    });
-    
-    function goList(){
-    	
-    	location.href="list?num="+${board.num};
-    	
-    }
-    
-    function showForm(){
-    	
-    	$("#replyform").css("visibility","visible");
-    	$("#replbtn").text("답글 취소");
-    	$("#replbtn").on("click",hideForm);
-    	
-    }
-    
-    function hideForm(){
-    	
-    	$("#replyform").css("visibility","hidden");
-    	$("#replbtn").text("답글");
-    	$("#replbtn").on("click",showForm);
-    	
-    }
-    
-    function delAjax(){
-    	
-    	var data = $("#infoform").serialize();
-    	$.ajax({
-    		
-    		url:"delConfirm",
-    		data:data,
-    		dataType:"json",
-    		type:"post",
-    		success:function(obj){
-    			if(obj.parent){
-    				
-    				var c = confirm("자식글이어서 삭제가 가능합니다. 삭제하시겠습니까?");
-    				if(c){
-    				  location.href="del?num="+$("input[name='num']").val();
-    				}
-    			}else{
-    				
-    				alert("부모글이어서 삭제가 불가능합니다. 자식을 먼저 삭제하세요~");
-    				
-    			}
-    			
-    		},
-    		error:function(){
-    			
-    			
-    		}
-    		
-    	})
-    	
-    }
+		$("#listbtn").on("click", goList);
+		$("#replbtn").on("click", showForm);
+		$("#delete").on("click", delAjax);
 
+	});
+
+	function goList() {
+
+		location.href = "list?num=" + $
+		{
+			board.num
+		}
+		;
+
+	}
+
+	function showForm() {
+
+		$("#replyform").css("visibility", "visible");
+		$("#replbtn").text("답글 취소");
+		$("#replbtn").on("click", hideForm);
+
+	}
+
+	function hideForm() {
+
+		$("#replyform").css("visibility", "hidden");
+		$("#replbtn").text("답글");
+		$("#replbtn").on("click", showForm);
+
+	}
+
+	function delAjax() {
+
+		var data = $("#infoform").serialize();
+		$.ajax({
+
+			url : "delConfirm",
+			data : data,
+			dataType : "json",
+			type : "post",
+			success : function(obj) {
+				if (obj.parent) {
+
+					var c = confirm("자식글이어서 삭제가 가능합니다. 삭제하시겠습니까?");
+					if (c) {
+						location.href = "del?num="
+								+ $("input[name='num']").val();
+					}
+				} else {
+
+					alert("부모글이어서 삭제가 불가능합니다. 자식을 먼저 삭제하세요~");
+
+				}
+
+			},
+			error : function() {
+
+			}
+
+		})
+
+	}
 </script>
 <style>
 th {
@@ -121,33 +123,33 @@ th {
 		</tr>
 	</table>
 	<br>
-	
-	
-	<form action="modform" style="margin-left: 25%; display:inline;" id="infoform">
+
+
+	<form action="modform" style="margin-left: 25%; display: inline;"
+		id="infoform">
 		<input type="hidden" name="num" value="${board.num}" /> <input
 			type="hidden" name="title" value="${board.title}" /> <input
 			type="hidden" name="wdate" value="${board.w_date}" /> <input
-			type="hidden" name="contents" value="${board.contents}" />
+			type="hidden" name="contents" value='${board.contents}' />
 		<button type="submit">수정</button>
 	</form>
 	<button type="button" id="replbtn">답글</button>
 	<button type="button" id="listbtn">리스트보기</button>
 	<button type="button" id="delete">삭제</button>
-	<form action="reply" method="post" style="margin-left:auto; margin-right:auto; visibility:hidden; width:380px;" id="replyform">
-	<fieldset>
-	<legend>답글쓰기</legend>
-	    <input type="hidden" name="ref" value="${board.num}"/>
-	    <label for="title">제목</label>
-	    <br>
-	    <input type="text" id="title" name="title" style="width:370px;"/>
-	    <br>
-	    <label for="contents">내용</label>
-	    <br>
-	    <textarea rows="4" cols="50" id="contents" name="contents"></textarea>
-	    <br>
-	    <button type="submit">답글</button>
-	    </fieldset>	    
+	<form action="reply" method="post"
+		style="margin-left: auto; margin-right: auto; visibility: hidden; width: 380px;"
+		id="replyform">
+		<fieldset>
+			<legend>답글쓰기</legend>
+			<input type="hidden" name="ref" value="${board.num}" /> <label
+				for="title">제목</label> <br> <input type="text" id="title"
+				name="title" style="width: 370px;" /> <br> <label
+				for="contents">내용</label> <br>
+			<textarea rows="4" cols="50" id="contents" name="contents"></textarea>
+			<br>
+			<button type="submit">답글</button>
+		</fieldset>
 	</form>
-	
+
 </body>
 </html>

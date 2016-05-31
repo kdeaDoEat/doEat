@@ -36,23 +36,21 @@ public class NoticeService {
 	public int getTotalPage(String option,String search) {
 		int allpage;
 		int allrecords = dao.getAllCount(option, search);
-		System.out.println("allrecords" + allrecords);
+		
 		if (allrecords % rpp == 0) {
 
 			allpage = allrecords / rpp;
-			System.out.println("나머지 0 총 페이지 : "+allpage);
+			
 		} else {
 
 			allpage = (int) (((double) (allrecords / rpp)) + 1);
-			System.out.println("나머지 있음 총 페이지 : "+allpage);
+			
 		}
-		System.out.println("총 페이지 : "+allpage);
 		return allpage;
 	}
 
 	public int getPageNobyBno(BoardVO board, String option, String Search) {
 
-		System.out.println(board.getNum());
 		int curRn = dao.getRnbyBno(board , option, Search);
 		int curpage;
 		if (curRn % rpp == 0) {

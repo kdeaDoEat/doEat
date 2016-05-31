@@ -1,93 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<% String cp = request.getContextPath();%> <%--ContextPath 선언 --%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글쓰기 폼</title>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-2.2.2.min.js">	
-</script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-	
-<!-- smart editor2 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<link href="<%=cp%>/resources/smart_editor2/css/smart_editor2.css" rel="stylesheet" type="text/css">
+<title>네이버 :: Smart Editor 2 &#8482;</title>
+<link href="css/smart_editor2.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	body { margin: 10px; }
 </style>
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/js/lib/jindo2.all.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/js/lib/jindo_component.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/js/SE2M_Configuration.js" charset="utf-8"></script>	<!-- 설정 파일 -->
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/js/SE2BasicCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/js/smarteditor2.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/lib/jindo2.all.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/lib/jindo_component.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/SE2M_Configuration.js" charset="utf-8"></script>	<!-- 설정 파일 -->
+<script type="text/javascript" src="./js/SE2BasicCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/smarteditor2.min.js" charset="utf-8"></script>
+
 <!-- 사진첨부샘플  --> 
-<script type="text/javascript" src="<%=cp%>/resources/smart_editor2/sample/js/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>	
-<!-- smart editor2 -->
-
-	
-<script>
-	
-</script>
-<style>
-
-   body { margin: 10px; }
-   
-   #titleerror {
-   
-      color:red;
-   
-   }
-   
-   #contentserror {
-   
-      color:red;
-      
-   }
-   
-</style>
+<script type="text/javascript" src="./sample/js/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
 </head>
 <body>
 
 
-<!--Example Start-->
-<div id="se2_sample" style="margin:10px 0;">
-<!-- 	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
-	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
-	<input type="button" onclick="submitContents();" value="서버로 내용 전송" />
-	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" /> -->
-	<form action="insert" method="post" style="width:600px;">
-	<fieldset
-			style=" display: table; margin-left: auto; margin-right: auto; margin-top: 50px;">
 
-			<legend>글 쓰기</legend>
+<span id="rev">Version: 2.8.2.12056 </span>
 
-			<label for="title">글 제목</label><br> <input type="text"
-				id="title" name="title" style="width: 370px;"/>
-			<br>
-			<span id="titleerror">
-			<spring:bind path="board.title">
-				${status.errorMessage }<!-- 설정한 에러메세지 출력 -->
-			</spring:bind>
-			</span>
-			<br>
-			<br>
-			<label for="contents">글 내용</label><br>
-			<!-- SE2 Markup Start -->	
+<!-- SE2 Markup Start -->	
 <div id="smart_editor2">
 	<div id="smart_editor2_content"><a href="#se2_iframe" class="blind">글쓰기영역으로 바로가기</a>
 		<div class="se2_tool" id="se2_tool">
@@ -839,17 +778,17 @@
 	</div>
 </div>
 <!-- SE2 Markup End -->
-			<textarea rows="10" cols="50" id="contents" name="contents"></textarea>
-			<span id="contentserror">
-            <spring:bind path="board.contents">
-				${status.errorMessage }<!-- 설정한 에러메세지 출력 -->
-			</spring:bind>
-			</span>
-			<br>
-			<button type="button" onclick="submitContents()">글쓰기</button>
-			<br>
-			
-		</fieldset>
+
+<!--Example Start-->
+<div id="se2_sample" style="margin:10px 0;">
+	<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
+	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
+	<input type="button" onclick="submitContents();" value="서버로 내용 전송" />
+	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
+	<form action="sample.php" method="post">
+		<textarea name="contents" id="contents" rows="10" cols="100" style="width:766px; height:412px; display:none;">
+			<p>글 수정시 여기에 값을 넣어주면 됩니다.</p>
+		</textarea>
 	</form>
 </div>
 
@@ -900,6 +839,5 @@ if(window.frameElement){
 }
 </script>
 <!--Example End-->
-
 </body>
 </html>
