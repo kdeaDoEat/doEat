@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value="noticeboard")
+@RequestMapping(value="notice")
 public class NoticeBoardController {
 	
 	@Autowired

@@ -10,6 +10,14 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-2.2.2.min.js">	
 </script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
 
 	$(function() {
@@ -109,7 +117,7 @@
 		</c:forEach>
 	</table>
     <div id="belownavi">
-    
+    <ul class="pagination">
 	<fmt:parseNumber var="currdivppp" type="number"
 		value="${page.currpage/page.ppp}" integerOnly="true" />
 
@@ -128,16 +136,16 @@
 		</c:if>
 
 		<c:if test="${currdivppp>0}">
-			<a href="list?currpage=${currstart-page.ppp}&type=${search.type}&word=${search.word}">[이전]</a>
+			<li><a href="list?currpage=${currstart-page.ppp}&type=${search.type}&word=${search.word}">이전</a></li>
 		</c:if>
 
 		<c:forEach var="i" begin="${currstart}" end="${currend}"
 			varStatus="status">
-			<a href="list?currpage=${status.current}&type=${search.type}&word=${search.word}">[${status.current}]</a>
+			<li><a href="list?currpage=${status.current}&type=${search.type}&word=${search.word}">${status.current}</a></li>
 		</c:forEach>
 
 		<c:if test="${currend != page.totalpage}">
-			<a href="list?currpage=${currend+1}&type=${search.type}&word=${search.word}">[다음]</a>
+			<li><a href="list?currpage=${currend+1}&type=${search.type}&word=${search.word}">다음</a></li>
 		</c:if>
 
 	</c:if>
@@ -157,21 +165,21 @@
 		</c:if>
 
 		<c:if test="${currdivppp>1}">
-			<a href="list?currpage=${currstart-page.ppp}&type=${search.type}&word=${search.word}">[이전]</a>
+			<li><a href="list?currpage=${currstart-page.ppp}&type=${search.type}&word=${search.word}">이전</a></li>
 		</c:if>
 
 		<c:forEach var="i" begin="${currstart}" end="${currend}"
 			varStatus="status">
-			<a href="list?currpage=${status.current}&type=${search.type}&word=${search.word}">[${status.current}]</a>
+			<li><a href="list?currpage=${status.current}&type=${search.type}&word=${search.word}">${status.current}</a></li>
 		</c:forEach>
 
 		<c:if test="${currend != page.totalpage}">
-			<a href="list?currpage=${currend+1}&type=${search.type}&word=${search.word}">[다음]</a>
+			<li><a href="list?currpage=${currend+1}&type=${search.type}&word=${search.word}">다음</a></li>
 		</c:if>
 
 	</c:if>
-
-	<button type="button" id="writebtn" style="margin-right:20px;">글쓰기</button>
+    </ul>
+	<button type="button" id="writebtn" class="btn btn-default" style="margin-top:-67.5px;">글쓰기</button>
 	<br>
 
 	<select name="type" id="searchoption" style="margin-left:-50px;">

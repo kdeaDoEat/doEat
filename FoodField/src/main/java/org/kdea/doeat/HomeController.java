@@ -21,7 +21,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "notice" ,method = RequestMethod.GET)
 	public String notice(){
-		return "board/noticeBoard";
+		return "redirect: notice/list";
 	}
 	
 	@RequestMapping(value="free", method = RequestMethod.GET)
