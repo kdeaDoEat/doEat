@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getRnbyBno" resultType="int">
 		select "rowno" from ( select rownum "rowno", t1.* from ( select num,
-		LPAD('ㄴ',(LEVEL-1)*4,'→')||title title,contents,nickname,w_date from
+		LPAD('└',(LEVEL-1)*4,'　')||title title,contents,nickname,w_date from
 		board
 		<where>
 		
@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" resultType="org.kdea.vo.BoardVO">
 	
 		select * from ( select rownum "rowno", t1.* from ( select num,
-		LPAD('ㄴ',(LEVEL-1)*4,'→')||title title,contents,nickname,w_date from
+		LPAD('└',(LEVEL-1)*4,'　')||title title,contents,nickname,w_date from
 		board
 		<where>
 			<if test="true">
