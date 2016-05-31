@@ -50,41 +50,6 @@
 </script>
 <style>
 
-/*
-    table{
-       margin-left:auto;
-       margin-right:auto;
-       width:800px;
-    }
-     tr{
-    
-       height:40px;
-    }
-    tr:nth-child(even){
-       background-color:skyblue;
-       color:white;
-       
-    }
-    td:nth-child(1){
-       
-       width:70px;
-       
-    }
-    td:nth-child(3){
-       
-       width:120px;
-       
-    }
-    td:nth-child(4){
-       
-       width:100px;
-       
-    }
-    th{
-       height:40px;
-       background-color:gray;
-       color:white;
-    } */
 #belownavi {
 	display: table;
 	margin-left: auto;
