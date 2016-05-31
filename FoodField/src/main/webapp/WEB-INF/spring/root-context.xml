@@ -4,5 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+    
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource"> 
+	    <property name="dataSourceName" value="ds"/>
+	    <property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+	    <property name="user" value="scott"/>
+	    <property name="password" value="TIGER"/>
+    </bean>
+	
 </beans>

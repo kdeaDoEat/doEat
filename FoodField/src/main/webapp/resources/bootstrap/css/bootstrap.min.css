@@ -187,8 +187,33 @@ optgroup {
 
 table {
 	border-spacing: 0;
-	border-collapse: collapse
+	border-collapse: collapse;
+	font-family: "Lato","sans-serif";
 }
+
+
+#top {background-color: white; text-align: right;}
+table.one {                                 
+margin-bottom: 3em;
+border-collapse:collapse;
+margin: 0px auto;
+   }  
+table.one td {                            /* removed the border from the table data rows  */
+text-align: center;    
+width: 10em;                   
+padding: 1em;       }      
+table.one th {                              /* removed the border from the table heading row  */
+text-align: center;                
+padding: 1em;
+background-color: #e8503a;       /* added a red background color to the heading cells  */
+color: white;       }                 /* added a white font color to the heading text */
+table.one tr {   
+height: 1em;    }
+table.one tr:nth-child(even) {            /* added all even rows a #eee color  */
+    background-color: #eee;     }
+table.one tr:nth-child(odd) {            /* added all odd rows a #fff color  */
+background-color:#fff;      }
+
 
 td, th {
 	padding: 0
