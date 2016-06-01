@@ -27,7 +27,7 @@
 
 	$("#modifybtn").on("click",modsubmitgo);		
 	
-}); //안에 스크립트가 있어서 충돌인가.. null로 잡힌다.
+}); //안에 스크립트가 있어서 충돌인가..(문서 활성화 할 조건이 아래있어서.. 조건 안에 선언 해보자) null로 잡힌다.
 
 function modsubmitgo(){
 	
@@ -59,6 +59,7 @@ function modsubmitgo(){
 
 
 <style>
+
    #titleerror {
    
       color:red;
