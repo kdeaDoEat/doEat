@@ -5,6 +5,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<!-- 공통 부분 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!-- Custom CSS -->
+    <link href="<%=cp%>/resources/bootstrap/css/half-slider.css" rel="stylesheet">
+<!-- 공통 부분 -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글쓰기 폼</title>
 <script type="text/javascript"
@@ -45,6 +56,10 @@
 </script>
 <style>
 
+/*공통 부분*/
+#top {background-color: white; text-align: right;}
+/*공통 부분*/
+
    body { margin: 10px; }
    
    #titleerror {
@@ -63,6 +78,53 @@
 </head>
 <body>
 
+<!-- 공통 부분 body1 start -->
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="top" >
+         <a href="#">로그인</a>&nbsp;&nbsp;&nbsp;
+         <a href="#">회원가입</a>&nbsp;&nbsp;&nbsp;
+         <a href="#">QnA</a>&nbsp;&nbsp;&nbsp;
+    </div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../main">푸드필드</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../notice">공지사항</a>
+                    </li>
+                    <li>
+                        <a href="../free">자유게시판</a>
+                    </li>
+                    <li>
+                        <a href="../review">맛집 리뷰</a>
+                    </li>
+                    <li>
+                        <a href="../select">오늘의 메뉴</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <header class="other slide">
+    </header>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+<!-- 공통 부분 body1 end -->
 
 <!--Example Start-->
 <div id="se2_sample" style="margin:10px 0;">
@@ -71,14 +133,14 @@
 	<input type="button" onclick="submitContents();" value="서버로 내용 전송" />
 	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" /> -->
 	</div>
-	<form action="insert" method="post" style="width:600px;">
+	<form action="insert" method="post">
 	<fieldset
-			style=" display: table; margin-left: auto; margin-right: auto; margin-top: 50px;">
+			style=" display: table; margin-left: auto; margin-right: auto; margin-top: 50px;" class="form-group">
 
 			<legend>글 쓰기</legend>
 
 			<label for="title">글 제목</label><br> <input type="text"
-				id="title" name="title" style="width: 370px;"/>
+				id="title" name="title" class="form-control" />
 			<br>
 			<span id="titleerror">
 			<spring:bind path="board.title">
@@ -847,7 +909,8 @@
 			</spring:bind>
 			</span>
 			<br>
-			<button type="button" onclick="submitContents()">글쓰기</button>
+			<button type="button" class="btn btn-default" onclick="submitContents()">글쓰기</button>
+			<button type="button" id="listbtn" class="btn btn-default" onclick="goList()">리스트보기</button>
 			<br>
 			
 		</fieldset>
@@ -875,6 +938,8 @@ if(window.frameElement){
 		}
 	});
 	
+
+	
 	function pasteHTML() {
 		var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
 		oEditor.exec("PASTE_HTML", [sHTML]);
@@ -897,9 +962,36 @@ if(window.frameElement){
 		var nFontSize = 24;
 		oEditor.setDefaultFont(sDefaultFont, nFontSize);
 	}
+	function goList() {
+        
+		location.href = "list?num="+ ${board.num};
+
+	}
 }
+
 </script>
 <!--Example End-->
+
+	<!-- 공통 부분 body2 start -->
+	</div>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="<%=cp%>/resources/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 공통 부분 body2 start -->
 
 </body>
 </html>

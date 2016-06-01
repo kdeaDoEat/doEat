@@ -1,8 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% String cp = request.getContextPath(); %> <%--ContextPath 선언 --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<!-- 공통 부분 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!-- Custom CSS -->
+    <link href="<%=cp%>/resources/bootstrap/css/half-slider.css" rel="stylesheet">
+<!-- 공통 부분 -->
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 보기</title>
 <script type="text/javascript"
@@ -21,6 +33,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
+
 	$(function() {
 
 		$("#listbtn").on("click", goList);
@@ -84,25 +97,81 @@
 	}
 </script>
 <style>
+/*공통 부분*/
+#top {background-color: white; text-align: right;}
+/*공통 부분*/
 th {
-	width: 50px;
-	background-color: skyblue;
+
+	background-color: #eeeeee;
+	opacity: 0.7;
+	
 }
 
 #contenttitle {
+
 	height: 300px;
+	
 }
 
 #view {
 	margin-left: auto;
 	margin-right: auto;
-	width: 450px;
-	height: 450px;
+	width: 50%;
+	height: 400px;
 }
 </style>
 </head>
 <body>
-	<table id="view">
+
+<!-- 공통 부분 body1 start -->
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="top" >
+         <a href="#">로그인</a>&nbsp;&nbsp;&nbsp;
+         <a href="#">회원가입</a>&nbsp;&nbsp;&nbsp;
+         <a href="#">QnA</a>&nbsp;&nbsp;&nbsp;
+    </div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../main">푸드필드</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../notice">공지사항</a>
+                    </li>
+                    <li>
+                        <a href="../free">자유게시판</a>
+                    </li>
+                    <li>
+                        <a href="../review">맛집 리뷰</a>
+                    </li>
+                    <li>
+                        <a href="../select">오늘의 메뉴</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    <header class="other slide">
+    </header>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+<!-- 공통 부분 body1 end -->
+
+	<table id="view" class="table">
 		<tr>
 			<th>글 번호</th>
 			<th>글 제목</th>
@@ -122,16 +191,16 @@ th {
 
 
 	<form action="modform" style="margin-left: 25%; display: inline;"
-		id="infoform">
+		id="infoform" class="form-group">
 		<input type="hidden" name="num" value="${board.num}" /> <input
 			type="hidden" name="title" value="${board.title}" /> <input
 			type="hidden" name="wdate" value="${board.w_date}" /> <input
 			type="hidden" name="contents" value='${board.contents}' />
-		<button type="submit">수정</button>
+		<button type="submit" class="btn btn-default">수정</button>
 	</form>
-	<button type="button" id="replbtn">답글</button>
-	<button type="button" id="listbtn">리스트보기</button>
-	<button type="button" id="delete">삭제</button>
+	<button type="button" id="replbtn" class="btn btn-default">답글</button>
+	<button type="button" id="listbtn" class="btn btn-default">리스트보기</button>
+	<button type="button" id="delete" class="btn btn-default">삭제</button>
 	<form action="reply" method="post"
 		style="margin-left: auto; margin-right: auto; visibility: hidden; width: 380px;"
 		id="replyform">
@@ -143,9 +212,30 @@ th {
 				for="contents">내용</label> <br>
 			<textarea rows="4" cols="50" id="contents" name="contents"></textarea>
 			<br>
-			<button type="submit">답글</button>
+			<button type="submit" class="btn btn-default">답글</button>
 		</fieldset>
 	</form>
+
+	<!-- 공통 부분 body2 start -->
+	</div>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="<%=cp%>/resources/bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<%=cp%>/resources/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 공통 부분 body2 start -->
 
 </body>
 </html>
