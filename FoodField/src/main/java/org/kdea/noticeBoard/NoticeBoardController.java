@@ -281,7 +281,7 @@ public class NoticeBoardController {
 			boardlist = service.getBoardCurrListbyBno(board,model,search.getType(),search.getWord());
 			
 		}
-		if(page.getCurrpage()>0){
+		else if(page.getCurrpage()>0){
 			
 			boardlist = service.getBoardListbyPage(page.getCurrpage(),model,search.getType(),search.getWord());
 			

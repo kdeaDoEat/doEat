@@ -31,11 +31,7 @@
 
 	function goList() {
 
-		location.href = "list?num=" + $
-		{
-			board.num
-		}
-		;
+		location.href = "list?num="+ ${board.num};
 
 	}
 

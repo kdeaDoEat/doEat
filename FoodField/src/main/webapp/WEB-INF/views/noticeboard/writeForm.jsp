@@ -70,6 +70,7 @@
 	<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
 	<input type="button" onclick="submitContents();" value="서버로 내용 전송" />
 	<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" /> -->
+	</div>
 	<form action="insert" method="post" style="width:600px;">
 	<fieldset
 			style=" display: table; margin-left: auto; margin-right: auto; margin-top: 50px;">
@@ -851,7 +852,6 @@
 			
 		</fieldset>
 	</form>
-</div>
 
 <script type="text/javascript">
 if(window.frameElement){

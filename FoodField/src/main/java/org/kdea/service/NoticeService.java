@@ -13,6 +13,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class NoticeService {
@@ -107,6 +108,7 @@ public class NoticeService {
 		searchVO.setWord(search);
 		searchVO.setType(option);
 		model.addAttribute("search",searchVO);
+		System.out.println("page로 구해진 페이지 " + pageVO.getCurrpage());
 		model.addAttribute("page", pageVO);
 		return boardlist;
 	}
@@ -124,6 +126,7 @@ public class NoticeService {
 		searchVO.setWord(search);
 		searchVO.setType(option);
 		model.addAttribute("search",searchVO);
+		System.out.println("num로 구해진 페이지 " + page.getCurrpage());
 		model.addAttribute("page", page);
 		return boardlist;
 	}

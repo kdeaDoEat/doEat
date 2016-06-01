@@ -23,11 +23,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script>
 
-$(function() {
+/* $(function() {
 
 	$("#modifybtn").on("click",modsubmitgo);		
 	
-});
+}); //안에 스크립트가 있어서 충돌인가.. null로 잡힌다.
 
 function modsubmitgo(){
 	
@@ -38,7 +38,7 @@ function modsubmitgo(){
 		
 	}
 	
-}
+} */
 </script>
 
 <!-- smart editor2 -->
@@ -860,8 +860,7 @@ function modsubmitgo(){
 			</spring:bind>
 			</span>
 			<br>
-			<button type="button" onclick="submitContents()">글쓰기</button>
-			<button type="button" id="modifybtn">수정하기</button>
+			<button type="button" onclick="submitContents()">수정하기</button>
 			<br>
 			
 		</fieldset>
@@ -901,10 +900,15 @@ if(window.frameElement){
 	}
 	
 	function submitContents() {
+		
+		var result = confirm("이대로 수정하시겠습니까?");
+		
+		if(result){		
 		oEditor.exec("UPDATE_CONTENTS_FIELD");	// 에디터의 내용이 textarea에 적용됩니다.
 	
 		// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("contents").value를 이용해서 처리하면 됩니다.
 		jindo.$("contents").form.submit();
+		}
 	}
 	
 	function setDefaultFont() {
@@ -913,6 +917,7 @@ if(window.frameElement){
 		oEditor.setDefaultFont(sDefaultFont, nFontSize);
 	}
 }
+
 
 </script>
 <!--Example End-->	
